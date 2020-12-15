@@ -21,7 +21,7 @@ optional arguments:
 布尔类型的盲注解密：
 
 ```bash
-python Sqlmap_Boolean_Plaintext.py -r sqlmap_boolean.log
+python Sqlmap_Boolean_Plaintext.py -r Sqlmap_Boolean.log
 ```
 
 ![image-20201215141413364](imgs/image-20201215141413364.png) 
@@ -31,7 +31,7 @@ python Sqlmap_Boolean_Plaintext.py -r sqlmap_boolean.log
 延时盲注解密：
 
 ```
-python Sqlmap_Time_Plaintext.py -r sqlmap_time.log
+python Sqlmap_Time_Plaintext.py -r Sqlmap_Time.log
 ```
 
 ![image-20201215141439445](imgs/image-20201215141439445.png) 
