@@ -1,5 +1,7 @@
-# Sqlmap_Boolean_Plaintext
-Sqlmap 布尔注入日志 Payload 分析转明文脚本，写这个脚本是从 sqlmap.pcapng 一道 CTF 题目里面找到的灵感，不确定是否通用，但是实现思路可以参考一下。首先从日志里面提取出注入的顺序和对应的 Ascii 码值，然后分析一下提取出正确的 Ascii 码然后解码即可。
+# Sqlmap__Plaintext
+Sqlmap 盲注注入日志 Payload 分析转明文脚本，写这个脚本被一些 CTF 题目逼的，发现老是这种蛋疼的题目，虽然日志都可以看懂，但是一个个字母去解密太折腾了，所以这个脚本诞生了。目前遇到的 2 题发现都可以成功解题。
+
+做这种题目的套路就是首先自己从 Wireshark 里面提取出注入的 HTTP 日志，然后整理好，写一个对应的正则规则，最后使用脚本就可以直接解密了。
 
 ## 使用运行
 
@@ -14,15 +16,25 @@ optional arguments:
   -r READ     select sqlmap payload log file
 ```
 
-## 解密 sqlmap.log 测试
+## 解密 sqlmap_boolean.log 测试
+
+布尔类型的盲注解密：
 
 ```bash
-python Sqlmap_Boolean_Plaintext.py -r sqlmap.log
+python Sqlmap_Boolean_Plaintext.py -r sqlmap_boolean.log
 ```
 
-![image-20201210213300615](imgs/image-20201210213300615.png)  
+![image-20201215141413364](imgs/image-20201215141413364.png) 
 
-## 报错异常测试
+## 解密 sqlmap_time.log 测试
 
-![image-20201210213600851](imgs/image-20201210213600851.png)  
+延时盲注解密：
+
+```
+python Sqlmap_Time_Plaintext.py -r sqlmap_time.log
+```
+
+![image-20201215141439445](imgs/image-20201215141439445.png) 
+
+实际上这两个脚本是一毛一样的，不一样的地方只是**正则**部分。
 
